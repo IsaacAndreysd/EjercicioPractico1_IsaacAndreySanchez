@@ -4,11 +4,12 @@
  */
 
 package farmacia.DAO;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 /**
  *
  * @author isaac
  */
-public interface CategoriaDao {
+import farmacia.Domain.Producto;
 
+public interface dao extends JpaRepository<Producto, Long> {
 }

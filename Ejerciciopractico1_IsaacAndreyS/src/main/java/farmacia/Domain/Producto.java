@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 
 package farmacia.Domain;
@@ -15,7 +15,7 @@ import lombok.Data;
  *
  * @author isaac
  */
-public class domain implements Serializable {
+public class Producto implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
@@ -27,10 +27,10 @@ public class domain implements Serializable {
 
     private double precio;
 
-    public domain() {
+    public Producto() {
     }
 
-    public domain(String nombre, String descripcion, double precio, Long id) {
+    public Producto(String nombre, String descripcion, double precio, Long id) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
