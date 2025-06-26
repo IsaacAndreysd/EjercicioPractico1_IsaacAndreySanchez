@@ -3,17 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package farmacia.ServiceImplementation;
+
+package farmacia.ServiceImpl;
 
 import farmacia.DAO.dao;
 import farmacia.Domain.Producto;
-import farmacia.Service.Service;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
-@Servicio
-public class ServiceImpl implements Service {
+@org.springframework.stereotype.Service
+public class ProductoServiceImpl implements farmacia.Service.Service {
 
     @Autowired
     private dao repo;
@@ -24,18 +23,17 @@ public class ServiceImpl implements Service {
     }
 
     @Override
+    public Producto getProducto(Producto producto) {
+        return repo.findById(producto.getId()).orElse(null);
+    }
+
+    @Override
     public void guardar(Producto producto) {
         repo.save(producto);
     }
 
     @Override
-public void eliminar(Producto producto) {
-    repo.delete(producto);
+    public void eliminar(Producto producto) {
+        repo.delete(producto);
+    }
 }
-
-@Override
-public Producto getProducto(Producto producto) {
-    return repo.findById(producto.getId()).orElse(null);
-}
-}
-

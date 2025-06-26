@@ -30,13 +30,14 @@ public class ProductoController {
     private Service productoService;
 
     
-    @GetMapping("/listado")
-    public String listado(Model model) {
-        var productos = productoService.getProductos(false);
-        model.addAttribute("productos", productos);
-        model.addAttribute("totalProductos", productos.size());
-        return "/producto/listado";
-    }
+   @GetMapping("/listado")
+public String listado(Model model) {
+    var productos = productoService.listar();
+    model.addAttribute("productos", productos);
+    model.addAttribute("totalProductos", productos.size());
+    return "/producto/listado";
+}
+
 
     @GetMapping("/nuevo")
     public String productoNuevo(Producto producto) {
