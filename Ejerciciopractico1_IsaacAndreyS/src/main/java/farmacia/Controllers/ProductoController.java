@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/producto")
-public class Controller {
+public class ProductoController {
 
     @Autowired
     private Service productoService;
@@ -47,20 +47,15 @@ public class Controller {
     public String productoGuardar(Producto producto,
                                    @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
-            productoService.save(producto);
-            producto.setRutaImagen(
-                    firebaseStorageService.cargarImagen(
-                            imagenFile,
-                            "producto",
-                            producto.getIdProducto())); // asegúrate que ese getter exista
+productoService.guardar(producto);
         }
-        productoService.save(producto);
+productoService.guardar(producto);
         return "redirect:/producto/listado";
     }
 
     @GetMapping("/eliminar/{idProducto}")
     public String productoEliminar(Producto producto) {
-        productoService.delete(producto);
+        productoService.eliminar(producto);
         return "redirect:/producto/listado";
     }
 

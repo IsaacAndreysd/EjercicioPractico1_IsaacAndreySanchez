@@ -6,10 +6,11 @@
 package farmacia.Service;
 import farmacia.Domain.Producto;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 public interface Service {
-    List<Producto> listar();
-    Producto getProducto(Producto producto);
+List<Producto> getProductos(boolean activos);
+Producto getProducto(Producto producto);
     void guardar(Producto producto);
     void eliminar(Producto producto);
 }
